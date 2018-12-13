@@ -33,7 +33,7 @@ export default class App extends React.Component {
             returnKeyType={"done"}
             autoCorrect={false}
           />
-          <ScrollView>
+          <ScrollView contentContainerStyle={styles.toDos}>
             <ToDo />
           </ScrollView>
         </View>
