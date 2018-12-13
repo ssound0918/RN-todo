@@ -6,22 +6,44 @@ import {
   StatusBar, 
   TextInput, 
   Dimensions,
-  Platform
+  Platform,
+  ScrollView
 } from 'react-native';
+import ToDo from './ToDo';
 
 const { height, width } = Dimensions.get("window");
 
 export default class App extends React.Component {
+  state = {
+    newToDo: ""
+  };
   render() {
+    const { newToDo } = this.state;
     return (
       <View style={styles.container}>
         <StatusBar barStyle="light-content" />
         <Text style={styles.title}>sSound To Do</Text>
         <View style={styles.card}>
-          <TextInput style={styles.input} placeholder={"New To Do"}></TextInput>
+          <TextInput 
+            style={styles.input} 
+            placeholder={"New To Do"}
+            value={newToDo}
+            onChangeText={this._crontrollNewToDo}
+            placeholderTextColor={"#999"}
+            returnKeyType={"done"}
+            autoCorrect={false}
+          />
+          <ScrollView>
+            <ToDo />
+          </ScrollView>
         </View>
       </View>
     );
+  }
+  _crontrollNewToDo = text => {
+    this.setState({
+      newToDo: text
+    })
   }
 }
 
