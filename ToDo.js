@@ -33,7 +33,13 @@ export default class ToDo extends Component {
               <TouchableOpacity onPress={this._toggleComplete}>
                 <View style={[styles.circle, isCompleted ? styles.completedCircle : styles.uncompletedCircle]} />
               </TouchableOpacity>
-              {isEditing ? <TextInput style={[styles.text, styles.input, isCompleted ? styles.completedText : styles.uncompletedText]} value={toDoValue} multiline={true} onChangeText={this._controllInput} returnKeyType={"done"} onBlur={this._finishEditing} /> : <Text
+              {isEditing ? <TextInput style={[styles.text, styles.input, isCompleted ? styles.completedText : styles.uncompletedText]} 
+                value={toDoValue} multiline={true} 
+                onChangeText={this._controllInput} 
+                returnKeyType={"done"} 
+                onBlur={this._finishEditing} 
+                underlineColorAndroid={"transparent"}
+                /> : <Text
                   style={[
                     styles.text,
                     isCompleted
